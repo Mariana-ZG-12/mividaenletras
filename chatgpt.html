@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuego y Sangre</title>
+    <style>
+        body {
+            background-color: red;
+            color: black;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: black;
+            text-align: center;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px red;
+        }
+        h2 {
+            color: black;
+            font-size: 2em;
+            margin-top: 40px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+        .logo {
+            display: block;
+            margin: 20px auto;
+            width: 150px; /* Ajusta el tamaño del logo aquí */
+        }
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+        .button {
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>FUEGO Y SANGRE</h1>
+    <img src="Photo/Targaryen.jpg" alt="Logo de Dragón" class="logo">
+
+    <section>
+        <h2>La Conquista de Aegon</h2>
+        <p>
+            Aegon Targaryen, junto con sus dos hermanas y tres dragones, emprendió una
+            conquista épica que uniría los siete reinos bajo un solo trono. Con la
+            fuerza de su fuego y el dominio de los cielos, Aegon demostró que el poder
+            de los dragones era imbatible, estableciendo así la dinastía Targaryen.
+        </p>
+    </section>
+
+    <section>
+        <h2>Danza de Dragones</h2>
+        <p>
+            La familia Targaryen, en su lucha por el poder, se destruyó a sí misma en
+            una serie de conflictos conocidos como la Danza de Dragones. Esta guerra
+            fratricida dividió a la familia y dejó una estela de destrucción, poniendo
+            en peligro el legado de los dragones.
+        </p>
+    </section>
+
+    <section>
+        <h2>La Conquista de Daenerys</h2>
+        <p>
+            Muchos años después, Daenerys Targaryen, con sus tres dragones, regresó
+            para reclamar el trono que su ancestro Aegon había dejado. Su valentía y
+            determinación la llevaron a desafiar a los usurpadores, demostrando que el
+            fuego y la sangre aún corrían por sus venas.
+        </p>
+    </section>
+
+    <div class="carousel">
+        <button class="button prev" onclick="moveSlide(-1)">&#10094;</button>
+        <div class="carousel-images" id="carouselImages">
+            <img src="Photo/foto-pesada-dragon-1.jpg" alt="Imagen 1">
+            <img src="Photo/Maelys-1.jpg" alt="Imagen 2">
+            <img src="Photo/caraxes.jpg" alt="Imagen 3">
+        </div>
+        <button class="button next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveSlide(direction) {
+            const images = document.querySelectorAll('.carousel-images img');
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            const offset = -currentIndex * 100; // Cambia 100 a 100% para ajustar
+            document.getElementById('carouselImages').style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+</body>
+</html>
